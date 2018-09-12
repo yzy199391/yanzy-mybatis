@@ -1,0 +1,2 @@
+insert into users(username,userpass,nickname,age,gender,phone,email,createTime,updateTime,lastLogin,userStatus,remark)
+values('admin','12345','管理员',25,'男','15684950294','test@qq.com','2018-09-11','2018-09-11','2018-09-11',0,'正常');

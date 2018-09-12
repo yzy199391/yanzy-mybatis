@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--用于定义一个映射配置文件的根节点，
+namespace属性配置命名空间，主要进行session级别的缓存管理，
+此处namespace配置的为对users的dao操作类-->
+
+<!--查询用户信息-->
+<mapper namespace="com.yanzy.dao.UserDao">
+    <select id="findUsers" resultType="com.yanzy.entity.Users">
+        select * from users
+        <where>
+            <if test="id != null">
+                id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!--自定义映射关系集合，解决实体类与映射类字段不一致的问题，此处只做记录，并未使用-->
+   <!-- <resultMap id="forUsers" type="com.yanzy.entity.Users">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+    </resultMap>
+-->
+    <!--新增用户,设置主键自动增长-->
+    <insert id="addUsers" useGeneratedKeys="true" keyProperty="id">
+        insert into users(username,nickname,userpass,age,gender,phone,email,createTime,updateTime,lastLogin,userStatus,remark)
+        values(#{username},#{nickname},#{userpass},#{age},#{gender},#{phone},#{email},#{createTime},#{updateTime},#{lastLogin},#{userStatus},#{remark})
+    </insert>
+</mapper>

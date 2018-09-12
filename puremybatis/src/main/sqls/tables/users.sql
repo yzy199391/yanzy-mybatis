@@ -13,4 +13,4 @@ CREATE TABLE `users` (
   `userStatus` int(11) DEFAULT NULL COMMENT '用户账号状态，0 正常 1 锁定 2 删除',
   `remark` text COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
